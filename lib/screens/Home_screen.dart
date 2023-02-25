@@ -44,6 +44,7 @@ class _HomeScreenState extends State<HomeScreen> {
     await Future.delayed(const Duration(milliseconds: 1000));
     setState(() {
       animate = true;
+      opacity = 1;
       height = 150.h;
       opacityFirst = 1;
       listViewHeight = 150.h;
@@ -54,7 +55,6 @@ class _HomeScreenState extends State<HomeScreen> {
   Future doctorProfileAnimation() async {
     await Future.delayed(const Duration(milliseconds: 500));
     setState(() {
-      opacity = 1;
       doctorName = true;
       doctorWidth = 70.h;
       doctorHeight = 70.h;
@@ -96,8 +96,7 @@ class _HomeScreenState extends State<HomeScreen> {
               ),
             ),
             AnimatedPositioned(
-              top: animate ? 65.h : 100.h,
-              // right: animate ? 15.w : -315.w,
+              top: animate ? 70.h : 80.h,
               duration: const Duration(milliseconds: 600),
               child: Container(
                 width: 330.w,
@@ -112,48 +111,50 @@ class _HomeScreenState extends State<HomeScreen> {
               ),
             ),
             AnimatedPositioned(
-              top: animate ? 57.h : 130.h,
+              top: animate ? 60.h : 130.h,
               // right: animate ? 15.w : -315.w,
               duration: const Duration(milliseconds: 800),
-              child: Container(
-                width: 325.w,
-                height: 150.h,
-                margin: EdgeInsets.symmetric(horizontal: 15.w),
-                child: Row(
-                  children: [
-                    Padding(
-                      padding: EdgeInsets.only(top: 8.h),
-                      child: Column(
-                        crossAxisAlignment: CrossAxisAlignment.start,
-                        children: [
-                          CustomText('50% Off', fontSize: 40.sp, fontFamily: 'Roboto_Medium', fontWeight: FontWeight.w900),
-                          CustomText('unbelievable visual & \nperformance', fontSize: 13.sp, fontFamily: 'Roboto', fontWeight: FontWeight.w500),
-                          Container(
-                            height: 50.h,
-                            width: 90.w,
-                            margin: EdgeInsets.only(left: 85.w),
-                            decoration: BoxDecoration(
-                              color: Colors.transparent,
-                              border: Border.all(color: kTextColor, width: 1.r),
-                              borderRadius: BorderRadius.circular(25.r),
-                            ),
-                            child: Center(child: CustomText('Buy Now', fontSize: 12.sp, fontWeight: FontWeight.w500)),
-                          )
-                        ],
+              child: AnimatedOpacity(
+                opacity: opacity,
+                curve: Curves.easeIn,
+                duration: const Duration(milliseconds: 700),
+                child: Container(
+                  width: 325.w,
+                  margin: EdgeInsets.symmetric(horizontal: 15.w),
+                  child: Row(
+                    children: [
+                      Padding(
+                        padding: EdgeInsets.only(top: 8.h),
+                        child: Column(
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          children: [
+                            CustomText('50% Off', fontSize: 40.sp, fontFamily: 'Roboto_Medium', fontWeight: FontWeight.w900),
+                            CustomText('unbelievable visual & \nperformance', fontSize: 13.sp, fontFamily: 'Roboto', fontWeight: FontWeight.w500),
+                            Container(
+                              height: 50.h,
+                              width: 90.w,
+                              margin: EdgeInsets.only(left: 85.w),
+                              decoration: BoxDecoration(
+                                color: Colors.transparent,
+                                border: Border.all(color: kTextColor, width: 1.r),
+                                borderRadius: BorderRadius.circular(25.r),
+                              ),
+                              child: Center(child: CustomText('Buy Now', fontSize: 12.sp, fontWeight: FontWeight.w500)),
+                            )
+                          ],
+                        ),
                       ),
-                    ),
-                    SizedBox(
-                      width: 20.w,
-                    ),
-                    Container(
-                        margin: EdgeInsets.only(bottom: 15.w),
-                        child: Image.asset(
-                          'assets/images/headphone.png',
-                          height: 140.h,
-                          width: 120.w,
-                          fit: BoxFit.fill,
-                        ))
-                  ],
+                      SizedBox(width: 20.w),
+                      Container(
+                          margin: EdgeInsets.only(bottom: 15.w),
+                          child: Image.asset(
+                            'assets/images/headphone.png',
+                            height: 140.h,
+                            width: 120.w,
+                            fit: BoxFit.fill,
+                          )),
+                    ],
+                  ),
                 ),
               ),
             ),
@@ -162,184 +163,215 @@ class _HomeScreenState extends State<HomeScreen> {
               left: 20.w,
               // right: animate ? 15.w : -315.w,
               duration: const Duration(milliseconds: 600),
-              child: SizedBox(
-                height: 40.h,
-                child: ListView.builder(
-                    itemCount: companyName.length,
-                    scrollDirection: Axis.horizontal,
-                    shrinkWrap: true,
-                    itemBuilder: (context, index) {
-                      if (index == 0) {
-                        return Padding(
-                          padding: EdgeInsets.only(right: 18.w),
-                          child: CommonButton(
-                              height: 35.h,
-                              width: 45.h,
-                              child: CustomText(companyName[index], fontWeight: FontWeight.w600, color: kWhiteColor, fontSize: 13.sp)),
-                        );
-                      } else {
-                        return Padding(
-                          padding: EdgeInsets.only(top: 6.h, right: 18.w),
-                          child: CustomText(
-                            companyName[index],
-                            fontSize: 13.sp,
-                            fontWeight: FontWeight.w600,
-                          ),
-                        );
-                      }
-                    }),
+              child: AnimatedOpacity(
+                opacity: opacity,
+                curve: Curves.easeIn,
+                duration: const Duration(milliseconds: 700),
+                child: SizedBox(
+                  height: 40.h,
+                  child: ListView.builder(
+                      itemCount: companyName.length,
+                      scrollDirection: Axis.horizontal,
+                      shrinkWrap: true,
+                      itemBuilder: (context, index) {
+                        if (index == 0) {
+                          return Padding(
+                            padding: EdgeInsets.only(right: 18.w),
+                            child: CommonButton(
+                                height: 35.h,
+                                width: 45.h,
+                                child: CustomText(companyName[index], fontWeight: FontWeight.w600, color: kWhiteColor, fontSize: 13.sp)),
+                          );
+                        } else {
+                          return Padding(
+                            padding: EdgeInsets.only(top: 6.h, right: 18.w),
+                            child: CustomText(
+                              companyName[index],
+                              fontSize: 13.sp,
+                              fontWeight: FontWeight.w600,
+                            ),
+                          );
+                        }
+                      }),
+                ),
               ),
             ),
             AnimatedPositioned(
               top: animate ? 280.h : 420.h,
               duration: const Duration(milliseconds: 600),
-              child: SizedBox(
-                height: 160.h,
-                width: 412.w,
-                child: SingleChildScrollView(
-                    scrollDirection: Axis.horizontal,
-                    physics: const BouncingScrollPhysics(),
-                    child: Row(
-                      children: [
-                        for (int index = 0; index < gadgetList.length; index++)
-                          InkWell(
-                            onTap: () {
-                              Navigator.push(
-                                context,
-                                MaterialPageRoute(builder: (context) => const DetailScreen()),
-                              );
-                            },
-                            child: Container(
-                              height: 160.h,
-                              width: 145.w,
-                              margin: EdgeInsets.only(right: 10.w, left: index == 0 ? 15.w : 0),
-                              padding: EdgeInsets.all(13.r),
-                              decoration: BoxDecoration(
-                                color: gadgetList[index].color,
-                                borderRadius: BorderRadius.only(
-                                  topLeft: Radius.circular(index % 2 == 0 ? 0.r : 22.r),
-                                  topRight: Radius.circular(22.r),
-                                  bottomLeft: Radius.circular(22.r),
-                                  bottomRight: Radius.circular(index % 2 != 0 ? 0.r : 22.r),
+              child: AnimatedOpacity(
+                opacity: opacity,
+                curve: Curves.easeIn,
+                duration: const Duration(milliseconds: 700),
+                child: SizedBox(
+                  height: 160.h,
+                  width: 360.w,
+                  child: SingleChildScrollView(
+                      scrollDirection: Axis.horizontal,
+                      physics: const BouncingScrollPhysics(),
+                      child: Row(
+                        children: [
+                          for (int index = 0; index < gadgetList.length; index++)
+                            InkWell(
+                              onTap: () {
+                                Navigator.push(
+                                  context,
+                                  MaterialPageRoute(builder: (context) => const DetailScreen()),
+                                );
+                              },
+                              child: Container(
+                                height: 160.h,
+                                width: 145.w,
+                                margin: EdgeInsets.only(right: 10.w, left: index == 0 ? 15.w : 0),
+                                padding: EdgeInsets.all(13.r),
+                                decoration: BoxDecoration(
+                                  color: gadgetList[index].color,
+                                  borderRadius: BorderRadius.only(
+                                    topLeft: Radius.circular(index % 2 == 0 ? 0.r : 22.r),
+                                    topRight: Radius.circular(22.r),
+                                    bottomLeft: Radius.circular(22.r),
+                                    bottomRight: Radius.circular(index % 2 != 0 ? 0.r : 22.r),
+                                  ),
+                                ),
+                                child: Column(
+                                  children: [
+                                    Image.asset(
+                                      'assets/images/${gadgetList[index].image}',
+                                      height: 85.h,
+                                    ),
+                                    SizedBox(height: 10.h),
+                                    Row(
+                                      children: [
+                                        CustomText(gadgetList[index].name!, fontWeight: FontWeight.w400, fontSize: 10.sp),
+                                        Spacer(),
+                                        Row(
+                                          children: [
+                                            Icon(Icons.star_rounded, size: 15.sp, color: kTextColor),
+                                            CustomText(' 4.8', fontWeight: FontWeight.w500, fontSize: 11.sp)
+                                          ],
+                                        ),
+                                      ],
+                                    ),
+                                    SizedBox(height: 5.h),
+                                    Row(
+                                      children: [
+                                        CustomText('\$${gadgetList[index].price}', fontWeight: FontWeight.w600, fontSize: 12.sp),
+                                        Spacer(),
+                                        Row(
+                                          children: [
+                                            Icon(Icons.favorite, size: 14.sp, color: kTextColor),
+                                            CustomText(' 86%', fontWeight: FontWeight.w500, fontSize: 11.sp)
+                                          ],
+                                        ),
+                                      ],
+                                    ),
+                                  ],
                                 ),
                               ),
-                              child: Column(
-                                children: [
-                                  Image.asset(
-                                    'assets/images/${gadgetList[index].image}',
-                                    height: 85.h,
-                                  ),
-                                  SizedBox(height: 10.h),
-                                  Row(
-                                    children: [
-                                      CustomText(gadgetList[index].name!, fontWeight: FontWeight.w400, fontSize: 10.sp),
-                                      Spacer(),
-                                      Row(
-                                        children: [
-                                          Icon(Icons.star_rounded, size: 15.sp, color: kTextColor),
-                                          CustomText(' 4.8', fontWeight: FontWeight.w500, fontSize: 11.sp)
-                                        ],
-                                      ),
-                                    ],
-                                  ),
-                                  SizedBox(height: 5.h),
-                                  Row(
-                                    children: [
-                                      CustomText('\$${gadgetList[index].price}', fontWeight: FontWeight.w600, fontSize: 12.sp),
-                                      Spacer(),
-                                      Row(
-                                        children: [
-                                          Icon(Icons.favorite, size: 14.sp, color: kTextColor),
-                                          CustomText(' 86%', fontWeight: FontWeight.w500, fontSize: 11.sp)
-                                        ],
-                                      ),
-                                    ],
-                                  ),
-                                ],
-                              ),
-                            ),
-                          )
-                      ],
-                    )),
+                            )
+                        ],
+                      )),
+                ),
               ),
             ),
             AnimatedPositioned(
               top: animate ? 460.h : 480.h,
               left: 20.w,
               duration: const Duration(milliseconds: 600),
-              child: CustomText('Recommended', fontWeight: FontWeight.w700, fontSize: 18.sp),
+              child: AnimatedOpacity(
+                  opacity: opacity,
+                  curve: Curves.easeIn,
+                  duration: const Duration(milliseconds: 500),
+                  child: CustomText('Recommended', fontWeight: FontWeight.w700, fontSize: 18.sp)),
             ),
             AnimatedPositioned(
                 top: animate ? 500.h : 650.h,
-                left: 20.w,
                 duration: const Duration(milliseconds: 600),
-                child: Container(
-                  height: 150.h,
-                  width: 330.w,
-                  // margin: EdgeInsets.only(right: 10.w, left: index == 0 ? 15.w : 0),
-                  padding: EdgeInsets.all(15.r),
-                  decoration: BoxDecoration(
-                    color: kLightGreen,
-                    borderRadius: BorderRadius.circular(20.r),
-                  ),
-                  child: Row(
-                    children: [
-                      Container(
-                        height: 150.h,
-                        width: 140.w,
-                        decoration: BoxDecoration(
-                          color: Color(0xff8ab797),
-                          borderRadius: BorderRadius.circular(20.r),
-                        ),
-                        child: Image.asset(
-                          'assets/images/watch-black.png',
-                          height: 85.h,
-                        ),
-                      ),
-                      SizedBox(width: 10.h),
-                      Column(
-                        crossAxisAlignment: CrossAxisAlignment.start,
+                child: AnimatedOpacity(
+                  opacity: opacity,
+                  curve: Curves.easeIn,
+                  duration: const Duration(milliseconds: 600),
+                  child: SizedBox(
+                    height: 140.h,
+                    width: 360.w,
+                    child: SingleChildScrollView(
+                      scrollDirection: Axis.horizontal,
+                      physics: const BouncingScrollPhysics(),
+                      child: Row(
                         children: [
-                          SizedBox(height: 5.h),
-                          CustomText("Apple watch series G", fontFamily: 'Roboto_Medium', fontWeight: FontWeight.w500, fontSize: 13.sp),
-                          SizedBox(height: 5.h),
-                          CustomText("\$16.62/mo", fontFamily: 'Roboto_Bold', fontWeight: FontWeight.w700, fontSize: 19.sp),
-                          SizedBox(height: 10.h),
-                          Row(
-                            children: [
-                              Row(
+                          for (int i = 0; i < gadgetList.length; i++)
+                            Container(
+                              height: 140.h,
+                              width: 300.w,
+                              margin: EdgeInsets.only(right: 10.w, left: i == 0 ? 15.w : 0),
+                              padding: EdgeInsets.all(14.r),
+                              decoration: BoxDecoration(
+                                color: gadgetColor[i]['color'],
+                                borderRadius: BorderRadius.circular(22.r),
+                              ),
+                              child: Row(
                                 children: [
-                                  Icon(Icons.star_rounded, size: 15.sp, color: kTextColor),
-                                  CustomText(' 4.8', fontWeight: FontWeight.w500, fontSize: 11.sp)
+                                  Container(
+                                    height: 140.h,
+                                    width: 120.w,
+                                    decoration: BoxDecoration(
+                                      color: gadgetColor[i]['imageColor'],
+                                      borderRadius: BorderRadius.circular(20.r),
+                                    ),
+                                    child: Image.asset(
+                                      'assets/images/${gadgetList[i].image}',
+                                      height: 85.h,
+                                    ),
+                                  ),
+                                  SizedBox(width: 10.h),
+                                  Column(
+                                    crossAxisAlignment: CrossAxisAlignment.start,
+                                    children: [
+                                      SizedBox(height: 5.h),
+                                      CustomText(gadgetList[i].name!, fontFamily: 'Roboto_Medium', fontWeight: FontWeight.w500, fontSize: 13.sp),
+                                      SizedBox(height: 5.h),
+                                      CustomText("\$16.62/mo", fontFamily: 'Roboto_Bold', fontWeight: FontWeight.w700, fontSize: 19.sp),
+                                      SizedBox(height: 10.h),
+                                      Row(
+                                        children: [
+                                          Row(
+                                            children: [
+                                              Icon(Icons.star_rounded, size: 15.sp, color: kTextColor),
+                                              CustomText(' 4.8', fontWeight: FontWeight.w500, fontSize: 11.sp)
+                                            ],
+                                          ),
+                                          SizedBox(width: 10.w),
+                                          Row(
+                                            children: [
+                                              Icon(Icons.favorite, size: 14.sp, color: kTextColor),
+                                              CustomText(' 86%', fontWeight: FontWeight.w500, fontSize: 11.sp)
+                                            ],
+                                          ),
+                                        ],
+                                      ),
+                                      SizedBox(height: 8.h),
+                                      Row(
+                                        children: [
+                                          Icon(Icons.note_add, size: 15.sp, color: kTextColor),
+                                          CustomText(' Free delivery', fontWeight: FontWeight.w500, fontSize: 12.sp)
+                                        ],
+                                      ),
+                                      SizedBox(height: 5.h),
+                                      Row(
+                                        children: [
+                                          Icon(Icons.keyboard_return, size: 15.sp, color: kTextColor),
+                                          CustomText(' Free returns', fontWeight: FontWeight.w500, fontSize: 12.sp)
+                                        ],
+                                      ),
+                                    ],
+                                  ),
+                                  SizedBox(height: 5.h),
                                 ],
                               ),
-                              SizedBox(width: 10.w),
-                              Row(
-                                children: [
-                                  Icon(Icons.favorite, size: 14.sp, color: kTextColor),
-                                  CustomText(' 86%', fontWeight: FontWeight.w500, fontSize: 11.sp)
-                                ],
-                              ),
-                            ],
-                          ),
-                          SizedBox(height: 8.h),
-                          Row(
-                            children: [
-                              Icon(Icons.note_add, size: 15.sp, color: kTextColor),
-                              CustomText(' Free delivery', fontWeight: FontWeight.w500, fontSize: 12.sp)
-                            ],
-                          ),
-                          SizedBox(height: 5.h),
-                          Row(
-                            children: [
-                              Icon(Icons.keyboard_return, size: 15.sp, color: kTextColor),
-                              CustomText(' Free returns', fontWeight: FontWeight.w500, fontSize: 12.sp)
-                            ],
-                          ),
+                            ),
                         ],
                       ),
-                      SizedBox(height: 5.h),
-                    ],
+                    ),
                   ),
                 ))
           ],
@@ -348,13 +380,20 @@ class _HomeScreenState extends State<HomeScreen> {
     );
   }
 
-  // List gadgetImage = ['watch-black.png', 'headphone_red.png', 'airpods.png', 'apple-watch.png', 'earphone.png'];
   List<GadgetDetail> gadgetList = [
     GadgetDetail(name: 'smart watch', price: '100.00', color: kLightOrange, image: 'watch-black.png'),
     GadgetDetail(name: 'headphone', price: '77.00', color: kOrange, image: 'headphone_red.png'),
-    GadgetDetail(name: 'earphone', price: '67.99', color: kLightBlue, image: 'earphone.png'),
-    GadgetDetail(name: 'apple watch', price: '45.50', color: kLightGreen, image: 'apple-watch.png'),
+    GadgetDetail(name: 'apple watch', price: '67.99', color: kLightBlue, image: 'apple-watch.png'),
+    GadgetDetail(name: 'earphone', price: '45.50', color: kLightGreen, image: 'earphone.png'),
     GadgetDetail(name: 'airpods', price: '60.00', color: kLightOrange, image: 'airpods.png'),
+  ];
+
+  List<Map> gadgetColor = [
+    {'color': kLightGreen, 'imageColor': const Color(0xff8ab797)},
+    {'color': kLightOrange, 'imageColor': const Color(0xffeec183)},
+    {'color': kOrange, 'imageColor': const Color(0xfff69c7a)},
+    {'color': kYellow, 'imageColor': const Color(0xffefdb9f)},
+    {'color': kLightGreen, 'imageColor': const Color(0xff8ab797)},
   ];
 }
 
