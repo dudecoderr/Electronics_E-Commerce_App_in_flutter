@@ -214,6 +214,7 @@ class _HomeScreenState extends State<HomeScreen> {
                           for (int index = 0; index < gadgetList.length; index++)
                             InkWell(
                               onTap: () {
+                                print(":: Details screen ::");
                                 Navigator.push(
                                   context,
                                   MaterialPageRoute(builder: (context) => const DetailScreen()),
@@ -331,7 +332,7 @@ class _HomeScreenState extends State<HomeScreen> {
                                       CustomText(gadgetList[i].name!, fontFamily: 'Roboto_Medium', fontWeight: FontWeight.w500, fontSize: 13.sp),
                                       SizedBox(height: 5.h),
                                       CustomText("\$16.62/mo", fontFamily: 'Roboto_Bold', fontWeight: FontWeight.w700, fontSize: 19.sp),
-                                      SizedBox(height: 10.h),
+                                      SizedBox(height: 8.h),
                                       Row(
                                         children: [
                                           Row(
@@ -356,16 +357,16 @@ class _HomeScreenState extends State<HomeScreen> {
                                           CustomText(' Free delivery', fontWeight: FontWeight.w500, fontSize: 12.sp)
                                         ],
                                       ),
-                                      SizedBox(height: 5.h),
+                                      SizedBox(height: 3.h),
                                       Row(
                                         children: [
-                                          Icon(Icons.keyboard_return, size: 15.sp, color: kTextColor),
+                                          Icon(Icons.redo, size: 15.sp, color: kTextColor),
                                           CustomText(' Free returns', fontWeight: FontWeight.w500, fontSize: 12.sp)
                                         ],
                                       ),
                                     ],
                                   ),
-                                  SizedBox(height: 5.h),
+                                  // SizedBox(height: 5.h),
                                 ],
                               ),
                             ),

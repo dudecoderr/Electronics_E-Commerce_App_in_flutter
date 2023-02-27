@@ -48,7 +48,6 @@ class _AppointmentConpleteScreenState extends State<DetailScreen> with TickerPro
     return Scaffold(
       backgroundColor: kLightYellow,
       body: Stack(
-        // alignment: Alignment.topRight,
         children: [
           Row(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -56,7 +55,12 @@ class _AppointmentConpleteScreenState extends State<DetailScreen> with TickerPro
             children: [
               Padding(
                 padding: EdgeInsets.only(left: 15.w, top: 40.h),
-                child: CommonButton(child: Icon(Icons.arrow_back_ios, size: 12.sp)),
+                child: CommonButton(
+                    onTap: () {
+                      print("fdngrn  b ");
+                      Navigator.pop(context);
+                    },
+                    child: Icon(Icons.arrow_back_ios, size: 12.sp)),
               ),
               Container(
                 height: 300.h,
@@ -71,8 +75,8 @@ class _AppointmentConpleteScreenState extends State<DetailScreen> with TickerPro
             ],
           ),
           SafeArea(
-            child: Padding(
-              padding: EdgeInsets.symmetric(horizontal: 0.w),
+            child: SingleChildScrollView(
+              physics: const BouncingScrollPhysics(),
               child: Column(
                 children: [
                   SizedBox(height: 10.h),
@@ -102,30 +106,181 @@ class _AppointmentConpleteScreenState extends State<DetailScreen> with TickerPro
                         height: 270.h,
                         fit: BoxFit.fill,
                       )),
-                  Row(
-                    children: [
-                      Expanded(
-                        child: Column(children: [
+                  Padding(
+                    padding: EdgeInsets.symmetric(horizontal: 15.w, vertical: 15.h),
+                    child: Row(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        Expanded(
+                          child: Column(children: [
+                            Container(
+                              height: 70.h,
+                              decoration: BoxDecoration(
+                                color: kDarkYellow,
+                                borderRadius: BorderRadius.circular(35.h),
+                              ),
+                              child: Center(
+                                child: Column(
+                                  mainAxisAlignment: MainAxisAlignment.center,
+                                  children: [
+                                    Icon(Icons.note_add, size: 16.sp, color: kTextColor),
+                                    SizedBox(height: 4.h),
+                                    CustomText('Free delivery', fontWeight: FontWeight.w500, fontSize: 13.sp)
+                                  ],
+                                ),
+                              ),
+                            ),
+                            SizedBox(height: 10.h),
+                            Container(
+                              height: 70.h,
+                              decoration: BoxDecoration(
+                                color: kDarkYellow,
+                                borderRadius: BorderRadius.circular(35.h),
+                              ),
+                              child: Center(
+                                child: Column(
+                                  mainAxisAlignment: MainAxisAlignment.center,
+                                  children: [
+                                    Icon(Icons.redo, size: 18.sp, color: kTextColor),
+                                    SizedBox(height: 4.h),
+                                    CustomText('Free returns', fontWeight: FontWeight.w500, fontSize: 13.sp)
+                                  ],
+                                ),
+                              ),
+                            ),
+                            SizedBox(height: 10.h),
+                            Container(
+                              // height: 210.h,
+                              padding: EdgeInsets.all(15.h),
+                              decoration: BoxDecoration(
+                                color: const Color(0xff94c2a3),
+                                borderRadius: BorderRadius.only(
+                                  topLeft: Radius.circular(27.r),
+                                  bottomLeft: Radius.circular(27.r),
+                                  bottomRight: Radius.circular(27.r),
+                                ),
+                              ),
+                              child: Center(
+                                child: Column(
+                                  children: [
+                                    Icon(Icons.star_rounded, color: kTextColor, size: 32.sp),
+                                    SizedBox(height: 3.h),
+                                    CustomText('4.8', fontSize: 16.sp, fontWeight: FontWeight.w700),
+                                    SizedBox(height: 4.h),
+                                    CustomText('120 Reviews', fontSize: 11.sp, fontWeight: FontWeight.w500),
+                                    SizedBox(height: 8.h),
+                                    CustomText(
+                                      'The aluminum case is lightweight and made from 100 percent recycled aerospace-grade alloy. The Sport Loop is made from a soft and breathable double-...',
+                                      fontWeight: FontWeight.w500,
+                                    ),
+                                  ],
+                                ),
+                              ),
+                            )
+                          ]),
+                        ),
+                        SizedBox(width: 8.w),
+                        Expanded(
+                            child: Column(children: [
                           Container(
-                            height: 60.h,
-                            color: kDarkYellow,
+                            // height: 200.h,
+                            padding: EdgeInsets.symmetric(vertical: 20.h, horizontal: 15.w),
+                            decoration: BoxDecoration(
+                              color: const Color(0xfff6e39e),
+                              borderRadius: BorderRadius.only(
+                                topLeft: Radius.circular(27.r),
+                                bottomLeft: Radius.circular(27.r),
+                                bottomRight: Radius.circular(27.r),
+                              ),
+                            ),
+                            child: CustomText(
+                              'The aluminum case is lightweight and made from 100 percent recycled aerospace-grade alloy. The Sport Loop is made from a soft and breathable double-...',
+                              fontWeight: FontWeight.w500,
+                            ),
                           ),
                           SizedBox(height: 10.h),
                           Container(
-                            height: 60.h,
-                            color: kDarkYellow,
-                          ),
-                          SizedBox(height: 10.h),
-                          Container(
-                            height: 130.h,
-                            color: kLightGreen,
+                            // height: 200.h,
+                            padding: EdgeInsets.symmetric(vertical: 20.h, horizontal: 15.w),
+                            decoration: BoxDecoration(
+                              color: kOrange,
+                              borderRadius: BorderRadius.only(
+                                topLeft: Radius.circular(27.r),
+                                topRight: Radius.circular(27.r),
+                                bottomRight: Radius.circular(27.r),
+                              ),
+                            ),
+                            child: Center(
+                              child: Column(
+                                children: [
+                                  Row(
+                                    children: [
+                                      Icon(Icons.network_check, size: 15.sp, color: kTextColor),
+                                      SizedBox(width: 15.w),
+                                      CustomText(
+                                        'cellular \navailable',
+                                        color: kTextColor,
+                                      ),
+                                    ],
+                                  ),
+                                  SizedBox(height: 14.h),
+                                  Row(
+                                    children: [
+                                      Icon(Icons.redo, size: 15.sp, color: kTextColor),
+                                      SizedBox(width: 15.w),
+                                      CustomText(
+                                        'cellular \navailable',
+                                        color: kTextColor,
+                                      ),
+                                    ],
+                                  ),
+                                  SizedBox(height: 14.h),
+                                  Row(
+                                    children: [
+                                      Icon(Icons.network_check, size: 15.sp, color: kTextColor),
+                                      SizedBox(width: 15.w),
+                                      CustomText(
+                                        'cellular \navailable',
+                                        color: kTextColor,
+                                      ),
+                                    ],
+                                  ),
+                                  SizedBox(height: 14.h),
+                                  Row(
+                                    children: [
+                                      Icon(Icons.network_check, size: 15.sp, color: kTextColor),
+                                      SizedBox(width: 15.w),
+                                      CustomText(
+                                        'cellular \navailable',
+                                        color: kTextColor,
+                                      ),
+                                    ],
+                                  ),
+                                ],
+                              ),
+                            ),
                           )
-                        ]),
-                      ),
-                      Expanded(child: Column(children: [])),
-                    ],
+                        ])),
+                      ],
+                    ),
                   )
                 ],
+              ),
+            ),
+          ),
+          Positioned(
+            bottom: 25.w,
+            left: MediaQuery.of(context).size.width / 2 - 55.w,
+            right: MediaQuery.of(context).size.width / 2 - 55.w,
+            child: Container(
+              height: 50.h,
+              width: 120.w,
+              decoration: BoxDecoration(
+                color: kDarkYellow,
+                borderRadius: BorderRadius.circular(35.h),
+              ),
+              child: Center(
+                child: Icon(Icons.shopping_cart_outlined, size: 22.sp, color: kTextColor),
               ),
             ),
           )
