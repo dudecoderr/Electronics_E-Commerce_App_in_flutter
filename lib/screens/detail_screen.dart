@@ -1,5 +1,6 @@
 import 'package:electronics_e_commerce_app/constant/constant.dart';
 import 'package:electronics_e_commerce_app/constant/text_widget.dart';
+import 'package:electronics_e_commerce_app/screens/order_detail_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
@@ -272,15 +273,23 @@ class _AppointmentConpleteScreenState extends State<DetailScreen> with TickerPro
             bottom: 25.w,
             left: MediaQuery.of(context).size.width / 2 - 55.w,
             right: MediaQuery.of(context).size.width / 2 - 55.w,
-            child: Container(
-              height: 50.h,
-              width: 120.w,
-              decoration: BoxDecoration(
-                color: kDarkYellow,
-                borderRadius: BorderRadius.circular(35.h),
-              ),
-              child: Center(
-                child: Icon(Icons.shopping_cart_outlined, size: 22.sp, color: kTextColor),
+            child: GestureDetector(
+              onTap: () {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(builder: (context) => const OrderDetailScreen()),
+                );
+              },
+              child: Container(
+                height: 50.h,
+                width: 120.w,
+                decoration: BoxDecoration(
+                  color: kDarkYellow,
+                  borderRadius: BorderRadius.circular(35.h),
+                ),
+                child: Center(
+                  child: Icon(Icons.shopping_cart_outlined, size: 22.sp, color: kTextColor),
+                ),
               ),
             ),
           )
