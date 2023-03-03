@@ -1,6 +1,6 @@
 import 'package:electronics_e_commerce_app/constant/constant.dart';
 import 'package:electronics_e_commerce_app/constant/text_widget.dart';
-import 'package:electronics_e_commerce_app/screens/order_detail_screen.dart';
+import 'package:electronics_e_commerce_app/screens/cart_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
@@ -277,7 +277,7 @@ class _AppointmentConpleteScreenState extends State<DetailScreen> with TickerPro
               onTap: () {
                 Navigator.push(
                   context,
-                  MaterialPageRoute(builder: (context) => const OrderDetailScreen()),
+                  MaterialPageRoute(builder: (context) => const CartScreen()),
                 );
               },
               child: Container(

@@ -39,7 +39,8 @@ dependencies:
 #  UI components
   flutter_screenutil: ^5.6.1
   flutter_svg: ^2.0.2
-
+#  Animation
+  flutter_staggered_animations: ^1.1.1
 dev_dependencies:
   flutter_test:
     sdk: flutter
