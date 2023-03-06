@@ -23,7 +23,6 @@ class _OrderDetailScreenState extends State<OrderDetailScreen> {
         elevation: 0,
         leading: CommonButton(
             onTap: () {
-              print("fdngrn  b ");
               Navigator.pop(context);
             },
             child: Icon(Icons.arrow_back_ios, color: kTextColor, size: 12.sp)),
@@ -40,7 +39,7 @@ class _OrderDetailScreenState extends State<OrderDetailScreen> {
               itemCount: cartList.length + 1,
               scrollDirection: Axis.horizontal,
               itemBuilder: (context, index) {
-                if (index == 3) {
+                if (index == cartList.length) {
                   return Container(
                     height: 75.h,
                     width: 75.h,
@@ -72,11 +71,19 @@ class _OrderDetailScreenState extends State<OrderDetailScreen> {
                       );
                     },
                     child: Container(
-                      height: 75.h,
-                      width: 75.h,
+                      height: 85.h,
+                      width: 85.h,
                       padding: EdgeInsets.all(7.r),
                       margin: EdgeInsets.only(left: index == 0 ? 20.w : 0, right: 10.w),
-                      decoration: BoxDecoration(color: cartList[index].color!, borderRadius: BorderRadius.circular(20.h)),
+                      decoration: BoxDecoration(
+                        color: cartList[index].color!,
+                        borderRadius: BorderRadius.only(
+                          topLeft: Radius.circular(index % 2 == 0 ? 0.r : 20.r),
+                          topRight: Radius.circular(20.r),
+                          bottomLeft: Radius.circular(20.r),
+                          bottomRight: Radius.circular(index % 2 != 0 ? 0.r : 20.r),
+                        ),
+                      ),
                       child: Image.asset(cartList[index].image!),
                     ),
                   );
@@ -85,10 +92,11 @@ class _OrderDetailScreenState extends State<OrderDetailScreen> {
             ),
           ),
           SizedBox(
-            height: 542.h,
+            height: 535.h,
             child: AnimationLimiter(
               child: ListView.builder(
                 itemCount: 1,
+                physics: const NeverScrollableScrollPhysics(),
                 itemBuilder: (BuildContext context, int index) {
                   return AnimationConfiguration.staggeredList(
                     position: index,
@@ -97,7 +105,7 @@ class _OrderDetailScreenState extends State<OrderDetailScreen> {
                       verticalOffset: 50.0,
                       child: FadeInAnimation(
                         child: SizedBox(
-                          height: 542.h,
+                          height: 535.h,
                           child: Column(
                             crossAxisAlignment: CrossAxisAlignment.start,
                             children: [
@@ -118,8 +126,13 @@ class _OrderDetailScreenState extends State<OrderDetailScreen> {
                                   children: [
                                     Container(
                                       width: 50.w,
+                                      height: 50.h,
                                       decoration: BoxDecoration(color: kWhiteColor, borderRadius: BorderRadius.circular(15.h)),
-                                      // child: Icon(Icons.),
+                                      child: Icon(
+                                        Icons.location_on_outlined,
+                                        size: 20.sp,
+                                        color: kTextColor,
+                                      ),
                                     ),
                                     SizedBox(width: 10.w),
                                     Column(
@@ -166,7 +179,6 @@ class _OrderDetailScreenState extends State<OrderDetailScreen> {
                                   itemBuilder: (context, index) {
                                     if (index == 0) {
                                       return Container(
-                                        height: 75.h,
                                         width: 50.h,
                                         padding: EdgeInsets.all(7.r),
                                         margin: EdgeInsets.only(left: index == 0 ? 15.w : 0, right: 10.w),
@@ -195,9 +207,17 @@ class _OrderDetailScreenState extends State<OrderDetailScreen> {
                                           Container(
                                             height: 110.h,
                                             width: 200.h,
-                                            padding: EdgeInsets.all(7.r),
+                                            padding: EdgeInsets.all(15.r),
                                             margin: EdgeInsets.only(left: index == 0 ? 20.w : 0, right: 10.w),
                                             decoration: BoxDecoration(color: cartList[index - 1].color!, borderRadius: BorderRadius.circular(20.h)),
+                                            child: Align(
+                                              alignment: Alignment.bottomRight,
+                                              child: CustomText(
+                                                '02/25',
+                                                fontSize: 12.sp,
+                                                fontWeight: FontWeight.w700,
+                                              ),
+                                            ),
                                           ),
                                           Padding(
                                             padding: EdgeInsets.only(left: index == 0 ? 20.w : 0, right: 10.w),
@@ -206,7 +226,30 @@ class _OrderDetailScreenState extends State<OrderDetailScreen> {
                                               child: Container(
                                                 height: 110.h,
                                                 width: 130.h,
+                                                padding: EdgeInsets.all(12.r),
                                                 decoration: BoxDecoration(color: kOrange, borderRadius: BorderRadius.circular(20.h)),
+                                                child: Column(
+                                                  crossAxisAlignment: CrossAxisAlignment.start,
+                                                  children: [
+                                                    CustomText(
+                                                      'VISA',
+                                                      fontSize: 12.sp,
+                                                      fontWeight: FontWeight.w700,
+                                                    ),
+                                                    SizedBox(height: 5.w),
+                                                    CustomText(
+                                                      '246.99',
+                                                      fontSize: 24.sp,
+                                                      fontWeight: FontWeight.w700,
+                                                    ),
+                                                    const Spacer(),
+                                                    CustomText(
+                                                      '**** 0032',
+                                                      fontSize: 12.sp,
+                                                      fontWeight: FontWeight.w700,
+                                                    ),
+                                                  ],
+                                                ),
                                                 // child: Image.asset(
                                                 //   _imageUrl,
                                                 //   fit: BoxFit.cover,
@@ -226,6 +269,7 @@ class _OrderDetailScreenState extends State<OrderDetailScreen> {
                                   child: AnimationLimiter(
                                     child: ListView.builder(
                                       itemCount: 1,
+                                      physics: const NeverScrollableScrollPhysics(),
                                       itemBuilder: (BuildContext context, int index) {
                                         return AnimationConfiguration.staggeredList(
                                           position: index,
@@ -275,7 +319,7 @@ class _OrderDetailScreenState extends State<OrderDetailScreen> {
                                                       ],
                                                     ),
                                                   ),
-                                                  SizedBox(height: 20.h),
+                                                  SizedBox(height: 10.h),
                                                   GestureDetector(
                                                     onTap: () {
                                                       Navigator.push(

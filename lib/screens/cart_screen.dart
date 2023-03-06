@@ -37,7 +37,7 @@ class _CartScreenState extends State<CartScreen> with SingleTickerProviderStateM
       padding = 120.h;
       color = kDarkYellow;
     });
-    await Future.delayed(const Duration(seconds: 1));
+    await Future.delayed(const Duration(milliseconds: 700));
     setState(() {
       animate = true;
     });

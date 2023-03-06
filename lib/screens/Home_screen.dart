@@ -69,8 +69,6 @@ class _HomeScreenState extends State<HomeScreen> {
 
   @override
   Widget build(BuildContext context) {
-    // print("size ${MediaQuery.of(context).size.width}");
-    // print("size ${MediaQuery.of(context).size.height}");
     return Scaffold(
       backgroundColor: kLightYellow,
       body: SafeArea(
@@ -78,7 +76,6 @@ class _HomeScreenState extends State<HomeScreen> {
           children: [
             AnimatedPositioned(
               top: animate ? 15.h : 40.h,
-              // right: animate ? 15.w : -315.w,
               duration: const Duration(milliseconds: 600),
               child: Container(
                 width: 330.w,
@@ -214,10 +211,12 @@ class _HomeScreenState extends State<HomeScreen> {
                           for (int index = 0; index < gadgetList.length; index++)
                             InkWell(
                               onTap: () {
-                                print(":: Details screen ::");
                                 Navigator.push(
                                   context,
-                                  MaterialPageRoute(builder: (context) => const DetailScreen()),
+                                  MaterialPageRoute(
+                                      builder: (context) => DetailScreen(
+                                            gadgetDetail: gadgetList[index],
+                                          )),
                                 );
                               },
                               child: Container(
@@ -236,9 +235,12 @@ class _HomeScreenState extends State<HomeScreen> {
                                 ),
                                 child: Column(
                                   children: [
-                                    Image.asset(
-                                      'assets/images/${gadgetList[index].image}',
-                                      height: 85.h,
+                                    Hero(
+                                      tag: 'assets/images/${gadgetList[index].image}',
+                                      child: Image.asset(
+                                        'assets/images/${gadgetList[index].image}',
+                                        height: 85.h,
+                                      ),
                                     ),
                                     SizedBox(height: 10.h),
                                     Row(
@@ -380,29 +382,4 @@ class _HomeScreenState extends State<HomeScreen> {
       ),
     );
   }
-
-  List<GadgetDetail> gadgetList = [
-    GadgetDetail(name: 'smart watch', price: '100.00', color: kLightOrange, image: 'watch-black.png'),
-    GadgetDetail(name: 'headphone', price: '77.00', color: kOrange, image: 'headphone_red.png'),
-    GadgetDetail(name: 'apple watch', price: '67.99', color: kLightBlue, image: 'apple-watch.png'),
-    GadgetDetail(name: 'earphone', price: '45.50', color: kLightGreen, image: 'earphone.png'),
-    GadgetDetail(name: 'airpods', price: '60.00', color: kLightOrange, image: 'airpods.png'),
-  ];
-
-  List<Map> gadgetColor = [
-    {'color': kLightGreen, 'imageColor': const Color(0xff8ab797)},
-    {'color': kLightOrange, 'imageColor': const Color(0xffeec183)},
-    {'color': kOrange, 'imageColor': const Color(0xfff69c7a)},
-    {'color': kYellow, 'imageColor': const Color(0xffefdb9f)},
-    {'color': kLightGreen, 'imageColor': const Color(0xff8ab797)},
-  ];
-}
-
-class GadgetDetail {
-  String? name;
-  Color? color;
-  String? image;
-  String? price;
-
-  GadgetDetail({this.name, this.color, this.price, this.image});
 }
