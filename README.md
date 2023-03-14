@@ -24,5 +24,5 @@ Git Branch      [master]
 git link        [https://github.com/dudecoderr/Electronics_E-Commerce_App_in_flutter.git ]
 
 <p align="center">
-<img src="" width="600px">
+<img src="https://github.com/dudecoderr/Electronics_E-Commerce_App_in_flutter/blob/master/assets/images/Readme.jpg" width="600px">
 </p>
