@@ -41,6 +41,7 @@ dependencies:
   flutter_svg: ^2.0.2
 #  Animation
   flutter_staggered_animations: ^1.1.1
+
 dev_dependencies:
   flutter_test:
     sdk: flutter
@@ -66,8 +67,6 @@ flutter:
   # To add assets to your application, add an assets section, like this:
   assets:
     - assets/images/
-    - assets/lottie/
-    - assets/video/
     - assets/
 
   # An image asset can refer to one or more resolution-specific "variants", see
