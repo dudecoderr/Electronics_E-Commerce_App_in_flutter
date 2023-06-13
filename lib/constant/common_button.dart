@@ -3,12 +3,14 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class CommonButton extends StatelessWidget {
-  Widget child;
-  double? height;
-  double? width;
-  VoidCallback? onTap;
+  final Widget child;
+  final double? height;
+  final double? width;
+  final VoidCallback? onTap;
 
-  CommonButton({required this.child, this.height, this.width, this.onTap, Key? key}) : super(key: key);
+  const CommonButton(
+      {required this.child, this.height, this.width, this.onTap, Key? key})
+      : super(key: key);
 
   @override
   Widget build(BuildContext context) {

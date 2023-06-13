@@ -15,7 +15,8 @@ class CartScreen extends StatefulWidget {
   State<CartScreen> createState() => _CartScreenState();
 }
 
-class _CartScreenState extends State<CartScreen> with SingleTickerProviderStateMixin {
+class _CartScreenState extends State<CartScreen>
+    with SingleTickerProviderStateMixin {
   double opacity = 0.0;
 
   bool animate = false;
@@ -82,7 +83,11 @@ class _CartScreenState extends State<CartScreen> with SingleTickerProviderStateM
                         child: Container(
                           height: 100.h,
                           color: Colors.transparent,
-                          margin: EdgeInsets.only(left: 20.h, right: 20.h, top: 15.h),
+                          margin: EdgeInsets.only(
+                            left: 20.h,
+                            right: 20.h,
+                            top: 15.h,
+                          ),
                           // padding: EdgeInsets.only(top: 490.h, bottom: 15.h, left: 20.h, right: 20.h),
                           child: Row(
                             children: [
@@ -92,32 +97,47 @@ class _CartScreenState extends State<CartScreen> with SingleTickerProviderStateM
                                   height: 100.h,
                                   width: 100.h,
                                   padding: EdgeInsets.all(10.r),
-                                  decoration: BoxDecoration(color: cartList[index + 1].color, borderRadius: BorderRadius.circular(20.h)),
-                                  child: Image.asset(cartList[index + 1].image!),
+                                  decoration: BoxDecoration(
+                                      color: cartList[index + 1].color,
+                                      borderRadius:
+                                          BorderRadius.circular(20.h)),
+                                  child:
+                                      Image.asset(cartList[index + 1].image!),
                                 ),
                               ),
                               SizedBox(width: 15.w),
                               Column(
-                                mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                                mainAxisAlignment:
+                                    MainAxisAlignment.spaceEvenly,
                                 crossAxisAlignment: CrossAxisAlignment.start,
                                 children: [
                                   RichText(
                                     text: TextSpan(
                                       text: '\$${cartList[index + 1].price}',
-                                      style: TextStyle(fontWeight: FontWeight.w700, color: kTextColor, fontSize: 18.sp),
+                                      style: TextStyle(
+                                        fontWeight: FontWeight.w700,
+                                        color: kTextColor,
+                                        fontSize: 18.sp,
+                                      ),
                                       children: [
                                         TextSpan(
                                           text: ' \$120.00',
                                           style: TextStyle(
-                                              fontWeight: FontWeight.w500,
-                                              decoration: TextDecoration.lineThrough,
-                                              fontSize: 12.sp,
-                                              color: kDarkYellow),
+                                            fontWeight: FontWeight.w500,
+                                            decoration:
+                                                TextDecoration.lineThrough,
+                                            fontSize: 12.sp,
+                                            color: kDarkYellow,
+                                          ),
                                         ),
                                       ],
                                     ),
                                   ),
-                                  CustomText(cartList[index + 1].name!, fontSize: 13.sp, fontWeight: FontWeight.w300),
+                                  CustomText(
+                                    cartList[index + 1].name!,
+                                    fontSize: 13.sp,
+                                    fontWeight: FontWeight.w300,
+                                  ),
                                   Row(
                                     children: [
                                       GestureDetector(
@@ -128,12 +148,16 @@ class _CartScreenState extends State<CartScreen> with SingleTickerProviderStateM
                                             });
                                           }
 
-                                          print("counter-- :: ${counter}");
+                                          debugPrint("counter-- :: $counter");
                                         },
                                         child: CircleAvatar(
                                           radius: 16.r,
                                           backgroundColor: kYellow,
-                                          child: Icon(Icons.delete_outline, size: 18.sp, color: kTextColor),
+                                          child: Icon(
+                                            Icons.delete_outline,
+                                            size: 18.sp,
+                                            color: kTextColor,
+                                          ),
                                         ),
                                       ),
                                       Container(
@@ -150,12 +174,16 @@ class _CartScreenState extends State<CartScreen> with SingleTickerProviderStateM
                                           setState(() {
                                             counter++;
                                           });
-                                          print("counter :: ${counter}");
+                                          debugPrint("counter :: $counter");
                                         },
                                         child: CircleAvatar(
                                           radius: 16.r,
                                           backgroundColor: kYellow,
-                                          child: Icon(Icons.add, size: 18.sp, color: kTextColor),
+                                          child: Icon(
+                                            Icons.add,
+                                            size: 18.sp,
+                                            color: kTextColor,
+                                          ),
                                         ),
                                       ),
                                       SizedBox(width: 10.w),
@@ -197,7 +225,12 @@ class _CartScreenState extends State<CartScreen> with SingleTickerProviderStateM
                     width: 360.w,
                     child: Container(
                       height: 100.h,
-                      margin: EdgeInsets.only(left: 20.h, right: 20.h, top: 10.h, bottom: 10.h),
+                      margin: EdgeInsets.only(
+                        left: 20.h,
+                        right: 20.h,
+                        top: 10.h,
+                        bottom: 10.h,
+                      ),
                       child: Row(
                         children: [
                           Hero(
@@ -205,7 +238,10 @@ class _CartScreenState extends State<CartScreen> with SingleTickerProviderStateM
                             child: Container(
                               height: 100.h,
                               width: 100.h,
-                              decoration: BoxDecoration(color: cartList[0].color!, borderRadius: BorderRadius.circular(20.h)),
+                              decoration: BoxDecoration(
+                                color: cartList[0].color!,
+                                borderRadius: BorderRadius.circular(20.h),
+                              ),
                               child: Image.asset(cartList[0].image!),
                             ),
                           ),
@@ -217,22 +253,38 @@ class _CartScreenState extends State<CartScreen> with SingleTickerProviderStateM
                               RichText(
                                 text: TextSpan(
                                   text: '\$${cartList[0].price!}',
-                                  style: TextStyle(fontWeight: FontWeight.w700, color: kTextColor, fontSize: 18.sp),
+                                  style: TextStyle(
+                                    fontWeight: FontWeight.w700,
+                                    color: kTextColor,
+                                    fontSize: 18.sp,
+                                  ),
                                   children: [
                                     TextSpan(
                                       text: ' \$120.00',
                                       style: TextStyle(
-                                          fontWeight: FontWeight.w500, decoration: TextDecoration.lineThrough, fontSize: 12.sp, color: kDarkYellow),
+                                        fontWeight: FontWeight.w500,
+                                        decoration: TextDecoration.lineThrough,
+                                        fontSize: 12.sp,
+                                        color: kDarkYellow,
+                                      ),
                                     ),
                                   ],
                                 ),
                               ),
-                              CustomText(cartList[0].name!, fontSize: 13.sp, fontWeight: FontWeight.w300),
+                              CustomText(
+                                cartList[0].name!,
+                                fontSize: 13.sp,
+                                fontWeight: FontWeight.w300,
+                              ),
                               Row(children: [
                                 CircleAvatar(
                                   radius: 16.r,
                                   backgroundColor: kYellow,
-                                  child: Icon(Icons.delete_outline, size: 18.sp, color: kTextColor),
+                                  child: Icon(
+                                    Icons.delete_outline,
+                                    size: 18.sp,
+                                    color: kTextColor,
+                                  ),
                                 ),
                                 Container(
                                   width: 34.w,
@@ -246,7 +298,11 @@ class _CartScreenState extends State<CartScreen> with SingleTickerProviderStateM
                                 CircleAvatar(
                                   radius: 16.r,
                                   backgroundColor: kYellow,
-                                  child: Icon(Icons.add, size: 18.sp, color: kTextColor),
+                                  child: Icon(
+                                    Icons.add,
+                                    size: 18.sp,
+                                    color: kTextColor,
+                                  ),
                                 ),
                                 SizedBox(width: 10.w),
                                 CustomText(
@@ -264,7 +320,12 @@ class _CartScreenState extends State<CartScreen> with SingleTickerProviderStateM
                 )
               : const SizedBox(),
           Padding(
-            padding: EdgeInsets.only(top: 490.h, bottom: 15.h, left: 20.h, right: 20.h),
+            padding: EdgeInsets.only(
+              top: 490.h,
+              bottom: 15.h,
+              left: 20.h,
+              right: 20.h,
+            ),
             child: AnimationLimiter(
               child: ListView.builder(
                 itemCount: 1,
@@ -291,21 +352,36 @@ class _CartScreenState extends State<CartScreen> with SingleTickerProviderStateM
                               padding: EdgeInsets.symmetric(horizontal: 25.h),
                               // margin: EdgeInsets.only(left: 20.h, right: 20.h, bottom: 15.w),
                               child: Row(
-                                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                                mainAxisAlignment:
+                                    MainAxisAlignment.spaceBetween,
                                 children: [
-                                  CustomText('Total to pay', fontSize: 14.sp, fontWeight: FontWeight.w500),
-                                  CustomText('\$400', fontSize: 14.sp, fontWeight: FontWeight.w700),
+                                  CustomText(
+                                    'Total to pay',
+                                    fontSize: 14.sp,
+                                    fontWeight: FontWeight.w500,
+                                  ),
+                                  CustomText(
+                                    '\$400',
+                                    fontSize: 14.sp,
+                                    fontWeight: FontWeight.w700,
+                                  ),
                                 ],
                               ),
                             ),
                             SizedBox(height: 10.h),
                             GestureDetector(
                               onTap: () {
-                                print("On Tap order");
+                                debugPrint("On Tap order");
                                 Navigator.push(
-                                    context,
-                                    PageRouteBuilder(
-                                        transitionDuration: Duration(milliseconds: 1200), pageBuilder: (_, __, ___) => OrderDetailScreen()));
+                                  context,
+                                  PageRouteBuilder(
+                                    transitionDuration: const Duration(
+                                      milliseconds: 1200,
+                                    ),
+                                    pageBuilder: (_, __, ___) =>
+                                        const OrderDetailScreen(),
+                                  ),
+                                );
                               },
                               child: Container(
                                 height: 50.h,
@@ -315,8 +391,11 @@ class _CartScreenState extends State<CartScreen> with SingleTickerProviderStateM
                                 ),
                                 padding: EdgeInsets.symmetric(horizontal: 25.h),
                                 // margin: EdgeInsets.symmetric(horizontal: 20.h),
-                                child: Center(
-                                  child: CustomText('Place order', fontWeight: FontWeight.w600),
+                                child: const Center(
+                                  child: CustomText(
+                                    'Place order',
+                                    fontWeight: FontWeight.w600,
+                                  ),
                                 ),
                               ),
                             ),

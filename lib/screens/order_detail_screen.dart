@@ -27,7 +27,11 @@ class _OrderDetailScreenState extends State<OrderDetailScreen> {
             },
             child: Icon(Icons.arrow_back_ios, color: kTextColor, size: 12.sp)),
         centerTitle: true,
-        title: CustomText('Order Details', fontSize: 18.sp, fontWeight: FontWeight.w700),
+        title: CustomText(
+          'Order Details',
+          fontSize: 18.sp,
+          fontWeight: FontWeight.w700,
+        ),
       ),
       body: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
@@ -44,9 +48,20 @@ class _OrderDetailScreenState extends State<OrderDetailScreen> {
                     height: 75.h,
                     width: 75.h,
                     padding: EdgeInsets.all(7.r),
-                    margin: EdgeInsets.only(left: index == 0 ? 15.w : 0, right: 10.w),
-                    decoration: BoxDecoration(color: kYellow, borderRadius: BorderRadius.circular(20.h)),
-                    child: Center(child: CustomText('See all', fontSize: 12.sp)),
+                    margin: EdgeInsets.only(
+                      left: index == 0 ? 15.w : 0,
+                      right: 10.w,
+                    ),
+                    decoration: BoxDecoration(
+                      color: kYellow,
+                      borderRadius: BorderRadius.circular(20.h),
+                    ),
+                    child: Center(
+                      child: CustomText(
+                        'See all',
+                        fontSize: 12.sp,
+                      ),
+                    ),
                   );
                 } else {
                   return Hero(
@@ -61,7 +76,11 @@ class _OrderDetailScreenState extends State<OrderDetailScreen> {
                       return TweenAnimationBuilder(
                         duration: const Duration(milliseconds: 1500),
                         tween: Tween<double>(begin: 0.0, end: 1.0),
-                        builder: (BuildContext context, double value, Widget? child) {
+                        builder: (
+                          BuildContext context,
+                          double value,
+                          Widget? child,
+                        ) {
                           return Opacity(
                             opacity: value,
                             child: child,
@@ -74,14 +93,19 @@ class _OrderDetailScreenState extends State<OrderDetailScreen> {
                       height: 85.h,
                       width: 85.h,
                       padding: EdgeInsets.all(7.r),
-                      margin: EdgeInsets.only(left: index == 0 ? 20.w : 0, right: 10.w),
+                      margin: EdgeInsets.only(
+                        left: index == 0 ? 20.w : 0,
+                        right: 10.w,
+                      ),
                       decoration: BoxDecoration(
                         color: cartList[index].color!,
                         borderRadius: BorderRadius.only(
                           topLeft: Radius.circular(index % 2 == 0 ? 0.r : 20.r),
                           topRight: Radius.circular(20.r),
                           bottomLeft: Radius.circular(20.r),
-                          bottomRight: Radius.circular(index % 2 != 0 ? 0.r : 20.r),
+                          bottomRight: Radius.circular(
+                            index % 2 != 0 ? 0.r : 20.r,
+                          ),
                         ),
                       ),
                       child: Image.asset(cartList[index].image!),
@@ -110,7 +134,12 @@ class _OrderDetailScreenState extends State<OrderDetailScreen> {
                             crossAxisAlignment: CrossAxisAlignment.start,
                             children: [
                               Padding(
-                                padding: EdgeInsets.only(left: 15.w, right: 15.w, top: 20.h, bottom: 12.h),
+                                padding: EdgeInsets.only(
+                                  left: 15.w,
+                                  right: 15.w,
+                                  top: 20.h,
+                                  bottom: 12.h,
+                                ),
                                 child: CustomText(
                                   'Delivery address',
                                   fontSize: 16.sp,
@@ -121,13 +150,20 @@ class _OrderDetailScreenState extends State<OrderDetailScreen> {
                                 height: 80.h,
                                 margin: EdgeInsets.symmetric(horizontal: 15.w),
                                 padding: EdgeInsets.all(15.r),
-                                decoration: BoxDecoration(color: kLightOrange, borderRadius: BorderRadius.circular(20.h)),
+                                decoration: BoxDecoration(
+                                  color: kLightOrange,
+                                  borderRadius: BorderRadius.circular(20.h),
+                                ),
                                 child: Row(
                                   children: [
                                     Container(
                                       width: 50.w,
                                       height: 50.h,
-                                      decoration: BoxDecoration(color: kWhiteColor, borderRadius: BorderRadius.circular(15.h)),
+                                      decoration: BoxDecoration(
+                                        color: kWhiteColor,
+                                        borderRadius:
+                                            BorderRadius.circular(15.h),
+                                      ),
                                       child: Icon(
                                         Icons.location_on_outlined,
                                         size: 20.sp,
@@ -136,8 +172,10 @@ class _OrderDetailScreenState extends State<OrderDetailScreen> {
                                     ),
                                     SizedBox(width: 10.w),
                                     Column(
-                                      crossAxisAlignment: CrossAxisAlignment.start,
-                                      mainAxisAlignment: MainAxisAlignment.center,
+                                      crossAxisAlignment:
+                                          CrossAxisAlignment.start,
+                                      mainAxisAlignment:
+                                          MainAxisAlignment.center,
                                       children: [
                                         CustomText(
                                           '8 Terrell Ave,Staten Island, \nNY 10312,United States...',
@@ -150,11 +188,15 @@ class _OrderDetailScreenState extends State<OrderDetailScreen> {
                                         ),
                                       ],
                                     ),
-                                    Spacer(),
+                                    const Spacer(),
                                     Container(
                                       width: 36.w,
                                       height: 36.w,
-                                      decoration: BoxDecoration(color: kWhiteColor, borderRadius: BorderRadius.circular(10.h)),
+                                      decoration: BoxDecoration(
+                                        color: kWhiteColor,
+                                        borderRadius:
+                                            BorderRadius.circular(10.h),
+                                      ),
                                       child: Icon(
                                         Icons.arrow_forward_ios,
                                         size: 10.sp,
@@ -164,7 +206,12 @@ class _OrderDetailScreenState extends State<OrderDetailScreen> {
                                 ),
                               ),
                               Padding(
-                                padding: EdgeInsets.only(left: 15.w, right: 15.w, top: 20.h, bottom: 12.h),
+                                padding: EdgeInsets.only(
+                                  left: 15.w,
+                                  right: 15.w,
+                                  top: 20.h,
+                                  bottom: 12.h,
+                                ),
                                 child: CustomText(
                                   'Shipping to',
                                   fontSize: 16.sp,
@@ -181,16 +228,29 @@ class _OrderDetailScreenState extends State<OrderDetailScreen> {
                                       return Container(
                                         width: 50.h,
                                         padding: EdgeInsets.all(7.r),
-                                        margin: EdgeInsets.only(left: index == 0 ? 15.w : 0, right: 10.w),
-                                        decoration: BoxDecoration(color: kYellow, borderRadius: BorderRadius.circular(15.h)),
+                                        margin: EdgeInsets.only(
+                                          left: index == 0 ? 15.w : 0,
+                                          right: 10.w,
+                                        ),
+                                        decoration: BoxDecoration(
+                                          color: kYellow,
+                                          borderRadius:
+                                              BorderRadius.circular(15.h),
+                                        ),
                                         child: Column(
-                                          mainAxisAlignment: MainAxisAlignment.center,
+                                          mainAxisAlignment:
+                                              MainAxisAlignment.center,
                                           children: [
                                             Container(
                                               width: 27.w,
                                               height: 27.w,
-                                              decoration: BoxDecoration(color: kWhiteColor, borderRadius: BorderRadius.circular(10.h)),
-                                              child: Icon(Icons.add, size: 12.sp),
+                                              decoration: BoxDecoration(
+                                                color: kWhiteColor,
+                                                borderRadius:
+                                                    BorderRadius.circular(10.h),
+                                              ),
+                                              child:
+                                                  Icon(Icons.add, size: 12.sp),
                                             ),
                                             SizedBox(height: 7.h),
                                             CustomText(
@@ -208,8 +268,15 @@ class _OrderDetailScreenState extends State<OrderDetailScreen> {
                                             height: 110.h,
                                             width: 200.h,
                                             padding: EdgeInsets.all(15.r),
-                                            margin: EdgeInsets.only(left: index == 0 ? 20.w : 0, right: 10.w),
-                                            decoration: BoxDecoration(color: cartList[index - 1].color!, borderRadius: BorderRadius.circular(20.h)),
+                                            margin: EdgeInsets.only(
+                                              left: index == 0 ? 20.w : 0,
+                                              right: 10.w,
+                                            ),
+                                            decoration: BoxDecoration(
+                                              color: cartList[index - 1].color!,
+                                              borderRadius:
+                                                  BorderRadius.circular(20.h),
+                                            ),
                                             child: Align(
                                               alignment: Alignment.bottomRight,
                                               child: CustomText(
@@ -220,33 +287,45 @@ class _OrderDetailScreenState extends State<OrderDetailScreen> {
                                             ),
                                           ),
                                           Padding(
-                                            padding: EdgeInsets.only(left: index == 0 ? 20.w : 0, right: 10.w),
+                                            padding: EdgeInsets.only(
+                                              left: index == 0 ? 20.w : 0,
+                                              right: 10.w,
+                                            ),
                                             child: ClipPath(
                                               clipper: ClipPathClass(),
                                               child: Container(
                                                 height: 110.h,
                                                 width: 130.h,
                                                 padding: EdgeInsets.all(12.r),
-                                                decoration: BoxDecoration(color: kOrange, borderRadius: BorderRadius.circular(20.h)),
+                                                decoration: BoxDecoration(
+                                                  color: kOrange,
+                                                  borderRadius:
+                                                      BorderRadius.circular(
+                                                          20.h),
+                                                ),
                                                 child: Column(
-                                                  crossAxisAlignment: CrossAxisAlignment.start,
+                                                  crossAxisAlignment:
+                                                      CrossAxisAlignment.start,
                                                   children: [
                                                     CustomText(
                                                       'VISA',
                                                       fontSize: 12.sp,
-                                                      fontWeight: FontWeight.w700,
+                                                      fontWeight:
+                                                          FontWeight.w700,
                                                     ),
                                                     SizedBox(height: 5.w),
                                                     CustomText(
                                                       '246.99',
                                                       fontSize: 24.sp,
-                                                      fontWeight: FontWeight.w700,
+                                                      fontWeight:
+                                                          FontWeight.w700,
                                                     ),
                                                     const Spacer(),
                                                     CustomText(
                                                       '**** 0032',
                                                       fontSize: 12.sp,
-                                                      fontWeight: FontWeight.w700,
+                                                      fontWeight:
+                                                          FontWeight.w700,
                                                     ),
                                                   ],
                                                 ),
@@ -265,13 +344,21 @@ class _OrderDetailScreenState extends State<OrderDetailScreen> {
                               ),
                               Expanded(
                                 child: Padding(
-                                  padding: EdgeInsets.only(left: 15.w, right: 15.w, top: 30.h, bottom: 20.h),
+                                  padding: EdgeInsets.only(
+                                    left: 15.w,
+                                    right: 15.w,
+                                    top: 30.h,
+                                    bottom: 20.h,
+                                  ),
                                   child: AnimationLimiter(
                                     child: ListView.builder(
                                       itemCount: 1,
-                                      physics: const NeverScrollableScrollPhysics(),
-                                      itemBuilder: (BuildContext context, int index) {
-                                        return AnimationConfiguration.staggeredList(
+                                      physics:
+                                          const NeverScrollableScrollPhysics(),
+                                      itemBuilder:
+                                          (BuildContext context, int index) {
+                                        return AnimationConfiguration
+                                            .staggeredList(
                                           position: index,
                                           duration: const Duration(seconds: 1),
                                           child: SlideAnimation(
@@ -284,36 +371,89 @@ class _OrderDetailScreenState extends State<OrderDetailScreen> {
                                                     // duration: const Duration(seconds: 1),
                                                     decoration: BoxDecoration(
                                                       color: kYellow,
-                                                      borderRadius: BorderRadius.only(
-                                                        topLeft: Radius.circular(18.r),
-                                                        topRight: Radius.circular(18.r),
-                                                        bottomRight: Radius.circular(18.r),
+                                                      borderRadius:
+                                                          BorderRadius.only(
+                                                        topLeft:
+                                                            Radius.circular(
+                                                                18.r),
+                                                        topRight:
+                                                            Radius.circular(
+                                                                18.r),
+                                                        bottomRight:
+                                                            Radius.circular(
+                                                                18.r),
                                                       ),
                                                     ),
-                                                    padding: EdgeInsets.symmetric(horizontal: 25.h),
+                                                    padding:
+                                                        EdgeInsets.symmetric(
+                                                            horizontal: 25.h),
                                                     // margin: EdgeInsets.only(left: 20.h, right: 20.h, bottom: 15.w),
                                                     child: Column(
-                                                      mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                                                      mainAxisAlignment:
+                                                          MainAxisAlignment
+                                                              .spaceEvenly,
                                                       children: [
                                                         Row(
-                                                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                                                          mainAxisAlignment:
+                                                              MainAxisAlignment
+                                                                  .spaceBetween,
                                                           children: [
-                                                            CustomText('Sub-total', fontSize: 14.sp, fontWeight: FontWeight.w500),
-                                                            CustomText('\$400', fontSize: 14.sp, fontWeight: FontWeight.w700),
+                                                            CustomText(
+                                                              'Sub-total',
+                                                              fontSize: 14.sp,
+                                                              fontWeight:
+                                                                  FontWeight
+                                                                      .w500,
+                                                            ),
+                                                            CustomText(
+                                                              '\$400',
+                                                              fontSize: 14.sp,
+                                                              fontWeight:
+                                                                  FontWeight
+                                                                      .w700,
+                                                            ),
                                                           ],
                                                         ),
                                                         Row(
-                                                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                                                          mainAxisAlignment:
+                                                              MainAxisAlignment
+                                                                  .spaceBetween,
                                                           children: [
-                                                            CustomText('Delivery', fontSize: 14.sp, fontWeight: FontWeight.w500),
-                                                            CustomText('\$400', fontSize: 14.sp, fontWeight: FontWeight.w700),
+                                                            CustomText(
+                                                              'Delivery',
+                                                              fontSize: 14.sp,
+                                                              fontWeight:
+                                                                  FontWeight
+                                                                      .w500,
+                                                            ),
+                                                            CustomText(
+                                                              '\$400',
+                                                              fontSize: 14.sp,
+                                                              fontWeight:
+                                                                  FontWeight
+                                                                      .w700,
+                                                            ),
                                                           ],
                                                         ),
                                                         Row(
-                                                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                                                          mainAxisAlignment:
+                                                              MainAxisAlignment
+                                                                  .spaceBetween,
                                                           children: [
-                                                            CustomText('Total to pay', fontSize: 14.sp, fontWeight: FontWeight.w500),
-                                                            CustomText('\$400', fontSize: 14.sp, fontWeight: FontWeight.w700),
+                                                            CustomText(
+                                                              'Total to pay',
+                                                              fontSize: 14.sp,
+                                                              fontWeight:
+                                                                  FontWeight
+                                                                      .w500,
+                                                            ),
+                                                            CustomText(
+                                                              '\$400',
+                                                              fontSize: 14.sp,
+                                                              fontWeight:
+                                                                  FontWeight
+                                                                      .w700,
+                                                            ),
                                                           ],
                                                         ),
                                                       ],
@@ -324,19 +464,31 @@ class _OrderDetailScreenState extends State<OrderDetailScreen> {
                                                     onTap: () {
                                                       Navigator.push(
                                                         context,
-                                                        MaterialPageRoute(builder: (context) => const BottomNavigationTab()),
+                                                        MaterialPageRoute(
+                                                          builder: (context) =>
+                                                              const BottomNavigationTab(),
+                                                        ),
                                                       );
                                                     },
                                                     child: Container(
                                                       height: 50.h,
                                                       decoration: BoxDecoration(
                                                         color: kDarkYellow,
-                                                        borderRadius: BorderRadius.circular(30.r),
+                                                        borderRadius:
+                                                            BorderRadius
+                                                                .circular(30.r),
                                                       ),
-                                                      padding: EdgeInsets.symmetric(horizontal: 25.h),
+                                                      padding:
+                                                          EdgeInsets.symmetric(
+                                                        horizontal: 25.h,
+                                                      ),
                                                       // margin: EdgeInsets.symmetric(horizontal: 20.h),
-                                                      child: Center(
-                                                        child: CustomText('Place order', fontWeight: FontWeight.w600),
+                                                      child: const Center(
+                                                        child: CustomText(
+                                                          'Place order',
+                                                          fontWeight:
+                                                              FontWeight.w600,
+                                                        ),
                                                       ),
                                                     ),
                                                   ),
@@ -376,11 +528,14 @@ class ClipPathClass extends CustomClipper<Path> {
 
     var firstControlPoint = Offset(size.width, size.height / 4);
     var firstPoint = Offset(size.width, size.height / 2);
-    path.quadraticBezierTo(firstControlPoint.dx, firstControlPoint.dy, firstPoint.dx, firstPoint.dy);
+    path.quadraticBezierTo(firstControlPoint.dx, firstControlPoint.dy,
+        firstPoint.dx, firstPoint.dy);
 
-    var secondControlPoint = Offset(size.width, size.height - (size.height / 4));
+    var secondControlPoint =
+        Offset(size.width, size.height - (size.height / 4));
     var secondPoint = Offset(size.width - 20, size.height);
-    path.quadraticBezierTo(secondControlPoint.dx, secondControlPoint.dy, secondPoint.dx, secondPoint.dy);
+    path.quadraticBezierTo(secondControlPoint.dx, secondControlPoint.dy,
+        secondPoint.dx, secondPoint.dy);
 
     path.lineTo(0.0, size.height);
     path.close();

@@ -1,6 +1,6 @@
 import 'package:electronics_e_commerce_app/constant/common_button.dart';
 import 'package:electronics_e_commerce_app/constant/constant.dart';
-import 'package:electronics_e_commerce_app/screens/Home_screen.dart';
+import 'package:electronics_e_commerce_app/screens/home_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
@@ -13,7 +13,13 @@ class BottomNavigationTab extends StatefulWidget {
 
 class _BottomNavigationTabState extends State<BottomNavigationTab> {
   int currentIndex = 0;
-  List screens = const [HomeScreen(), HomeScreen(), HomeScreen(), HomeScreen(), HomeScreen()];
+  List screens = const [
+    HomeScreen(),
+    HomeScreen(),
+    HomeScreen(),
+    HomeScreen(),
+    HomeScreen()
+  ];
 
   @override
   Widget build(BuildContext context) {
@@ -26,21 +32,50 @@ class _BottomNavigationTabState extends State<BottomNavigationTab> {
         child: BottomNavigationBar(
           items: <BottomNavigationBarItem>[
             BottomNavigationBarItem(
-                icon: const Icon(Icons.home), label: '', activeIcon: CommonButton(height: 45.h, width: 55.w, child: const Icon(Icons.home_filled))),
+              icon: const Icon(Icons.home),
+              label: '',
+              activeIcon: CommonButton(
+                height: 45.h,
+                width: 55.w,
+                child: const Icon(Icons.home_filled),
+              ),
+            ),
             BottomNavigationBarItem(
-                icon: const Icon(Icons.grid_view),
-                label: '',
-                activeIcon: CommonButton(height: 45.h, width: 55.w, child: const Icon(Icons.grid_view_rounded))),
+              icon: const Icon(Icons.grid_view),
+              label: '',
+              activeIcon: CommonButton(
+                height: 45.h,
+                width: 55.w,
+                child: const Icon(Icons.grid_view_rounded),
+              ),
+            ),
             BottomNavigationBarItem(
-                icon: const Icon(Icons.search), label: '', activeIcon: CommonButton(height: 45.h, width: 55.w, child: const Icon(Icons.search))),
+              icon: const Icon(Icons.search),
+              label: '',
+              activeIcon: CommonButton(
+                height: 45.h,
+                width: 55.w,
+                child: const Icon(Icons.search),
+              ),
+            ),
             BottomNavigationBarItem(
-                icon: const Icon(Icons.favorite_border_rounded),
-                label: '',
-                activeIcon: CommonButton(height: 45.h, width: 55.w, child: const Icon(Icons.favorite_rounded))),
+              icon: const Icon(Icons.favorite_border_rounded),
+              label: '',
+              activeIcon: CommonButton(
+                height: 45.h,
+                width: 55.w,
+                child: const Icon(Icons.favorite_rounded),
+              ),
+            ),
             BottomNavigationBarItem(
-                icon: const Icon(Icons.person_outline),
-                label: '',
-                activeIcon: CommonButton(height: 45.h, width: 55.w, child: const Icon(Icons.person))),
+              icon: const Icon(Icons.person_outline),
+              label: '',
+              activeIcon: CommonButton(
+                height: 45.h,
+                width: 55.w,
+                child: const Icon(Icons.person),
+              ),
+            ),
           ],
           type: BottomNavigationBarType.fixed,
           currentIndex: currentIndex,
